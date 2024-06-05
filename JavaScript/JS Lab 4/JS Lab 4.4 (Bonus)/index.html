@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Lab 4.4 (Bonus)</title>
+    <style>
+        .card-item{
+            cursor: pointer;
+            margin: 6px;
+        }
+        .card-item:hover{
+            transform:scale(1.05);
+        }
+        .game-over{
+            display: none;
+        }
+    </style>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>JS Lab 4.4 (Bonus) - Memory Game</h1>
+    <hr>
+    <div class="game-container">
+        <img src="assets/Moon.gif" class="card-item" alt="memory game hidden card">
+        <img src="assets/Moon.gif" class="card-item" alt="memory game hidden card">
+        <img src="assets/Moon.gif" class="card-item" alt="memory game hidden card">
+        <img src="assets/Moon.gif" class="card-item" alt="memory game hidden card">
+        <br>
+        <img src="assets/Moon.gif" class="card-item" alt="memory game hidden card">
+        <img src="assets/Moon.gif" class="card-item" alt="memory game hidden card">
+        <img src="assets/Moon.gif" class="card-item" alt="memory game hidden card">
+        <img src="assets/Moon.gif" class="card-item" alt="memory game hidden card">
+        <br>
+        <img src="assets/Moon.gif" class="card-item" alt="memory game hidden card">
+        <img src="assets/Moon.gif" class="card-item" alt="memory game hidden card">
+        <img src="assets/Moon.gif" class="card-item" alt="memory game hidden card">
+        <img src="assets/Moon.gif" class="card-item" alt="memory game hidden card">
+    </div>
+    <div class="game-over">
+        <h1 style="color: green;">You Won!</h1>
+        <button id="replay-btn">Replay</button>
+    </div>
+</body>
+</html>

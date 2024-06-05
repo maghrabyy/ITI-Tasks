@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Well - Card</title>
+    <script src="cookieLib.js"></script>
+    <style>
+        .card{
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+        }
+        img{
+            width: 300px;
+        }
+        h1{
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: rgb(35, 126, 126);
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img class="card-img" src="" alt="get well soon card">
+        <h1 class="card-msg"></h1>
+    </div>
+    <script>
+        var cardImg = document.querySelector('.card-img')
+        var personalMsg = document.querySelector('.card-msg')
+        cardImg.src = getCookie('imgSrc')   
+        personalMsg.innerText = getCookie('msg')
+    </script>
+</body>
+</html>

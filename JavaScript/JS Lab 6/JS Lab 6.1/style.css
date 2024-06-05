@@ -1,0 +1,40 @@
+input,select{
+    display: block;
+}
+button{
+    margin-top: 8px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.custom-form{
+    background-color: rgb(17, 59, 59);
+    color: white;
+    border-radius: 6px;
+    /* display: inline; */
+    padding: 20px 16px;
+}
+
+.field{
+    padding: 6px 0;
+}
+
+#reg-btn{
+    background-color: white;
+    border: none;
+    outline: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#reg-btn:hover{
+background-color: gray;
+}
+
+.cookiesData{
+    color: red;
+}

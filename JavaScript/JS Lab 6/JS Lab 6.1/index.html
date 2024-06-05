@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Lab 6.1</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="cookieLib.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>JS Lab 6.1 - Cookies Library</h1>
+    <hr>
+    <div class="container">
+        <div class="custom-form">
+            <h2>Your Info</h2>
+            <div class="field">
+                <label for="fullName">Full Name</label>
+                <input class="infoInpt" type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="field">
+                <label for="email">Email Address</label>
+                <input class="infoInpt" type="text" id="email" name="email"required>
+            </div>
+            <div class="field">
+                <label for="age">Age</label>
+                <input class="infoInpt" type="number" id="age" name="age"required>
+            </div>
+            <div class="field">
+                <label for="gender">Gender</label>
+                <select class="infoInpt" name="gender" id="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <button id="reg-btn">Submit</button>
+        </div>
+    </div>
+</body>
+</html>

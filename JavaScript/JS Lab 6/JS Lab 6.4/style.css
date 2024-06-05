@@ -1,0 +1,79 @@
+body{
+    background: hsla(329, 46%, 36%, 1);
+    background: linear-gradient(90deg, hsla(329, 46%, 36%, 1) 19%, hsla(350, 50%, 52%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(329, 46%, 36%, 1) 19%, hsla(350, 50%, 52%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(329, 46%, 36%, 1) 19%, hsla(350, 50%, 52%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#85315D", endColorstr="#C2495D", GradientType=1 );
+}
+
+
+.title{
+    padding: 8px;
+    border-bottom: 8px solid hsla(329, 46%, 36%, 1);
+    color: white;
+    text-align: center;
+    font-weight:bold;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+}
+
+.cards-selection{
+    padding: 16px 0;
+    display: grid;
+    justify-content: center;
+    gap: 10px;
+    grid-template-columns: 150px 150px 150px;
+}
+
+.card-item{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.card-item img{
+    width: 150px;
+    height: 150px;
+    border-radius: 6px;
+    margin-bottom: 4px;
+}
+
+.message-input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.message-input label{
+    text-align: center;
+    font-weight:bold;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.message-input textarea{
+    width: 400px;
+    height: 140px;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 6px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.message-input button{
+    margin-top: 4px;
+    background-color: hsla(329, 46%, 36%, 1);
+    padding: 4px 6px;
+    color: white;
+    font-family:'Courier New', Courier, monospace;
+    border: 1px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.message-input button:hover{
+    border-color: rgb(41, 15, 29);
+    background-color:  rgb(41, 15, 29);
+    color: white;
+}

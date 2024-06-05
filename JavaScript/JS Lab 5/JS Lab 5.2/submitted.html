@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Lab 5.2</title>
+</head>
+<body>
+    <h1>JS Lab 5.2</h1>
+    <hr>
+    <h1 id="submitted-msg"></h1>
+    <script>
+        var fieldData = location.search.substring(1).split('=')
+        document.getElementById('submitted-msg').innerText = fieldData[1].replaceAll('+', ' ') || 'No message Submitted'
+    </script>
+</body>
+</html>

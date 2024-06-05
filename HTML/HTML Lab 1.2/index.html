@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Lab 1.2</title>
+</head>
+<body>
+    <table border="1" >
+        <thead>
+            <tr>
+                <th colspan="2">Registration Form</th>
+            </tr>
+        </thead>
+        <tbody>
+            <form action="">
+                <tr>
+                    <td><label for="firstName">First Name</label></td>
+                    <td><input name="firstName" type="text" placeholder="Enter your first name"></td>
+                </tr>
+                <tr>
+                    <td><label for="lastName">Last Name</label></td>
+                    <td><input name="lastName" type="text" placeholder="Enter your last name"></td>
+                </tr>
+                <tr>
+                    <td><label for="userName">Username</label></td>
+                    <td><input name="userName" type="text" placeholder="Enter your username"></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Password</label></td>
+                    <td><input name="password" type="password" placeholder="Enter your password"></td>
+                </tr>
+                <tr>
+                    <td><label for="track">Track</label></td>
+                    <td>
+                        <select name="track" id="trackSelection">
+                            <option value="frontendandCrossplatform">Frontend And Crossplatform</option>
+                            <option value="powerBI">PowerBI</option>
+                            <option value="fullStackMern">Full-Stack using MERN</option>
+                            <option value="fullStackdotNet">Full-Stack .Net</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><label for="gender">Gender</label></td>
+                    <td>
+                        <input type="radio" name="gender" value="male">
+                        <label for="gender">Male</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="gender" value="female">
+                        <label for="gender">Female</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Favourites</td>
+                    <td>
+                        <input type="checkbox" name="favourites" value="football">
+                        <label for="favourites">Football</label>
+                        <input type="checkbox" name="favourites" value="basketball">
+                        <label for="favourites">Basketball</label>
+                        <br>
+                        <input type="checkbox" name="favourites" value="videoGames">
+                        <label for="favourites">Video Games</label>
+                        <input type="checkbox" name="favourites" value="reading">
+                        <label for="favourites">Reading</label>
+                        <br>
+                        <input type="checkbox" name="favourites" value="swimming">
+                        <label for="favourites">Swimming</label>
+                        <input type="checkbox" name="favourites" value="travel">
+                        <label for="favourites">Travel</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="description">Description</label></td>
+                    <td><textarea name="description" cols="25" rows="10"></textarea></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="submit">
+                        <input type="submit" value="reset">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="file" name="file">
+                    </td>
+                </tr>
+            </form>
+        </tbody>
+    </table>
+</body>
+</html>

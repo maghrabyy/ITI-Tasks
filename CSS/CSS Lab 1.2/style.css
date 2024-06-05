@@ -1,0 +1,106 @@
+body{
+    margin: 0;
+}
+
+section{
+    margin: 0 42px;
+}
+
+#first{
+    padding-top: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid rgb(216, 214, 214);
+}
+
+#first p{
+    text-align: center;
+    color: rgb(124, 123, 123)
+}
+
+#second{
+    padding: 14px 120px;
+    border-bottom: 2px solid rgb(216, 214, 214);
+}
+
+#second .wrapper {
+    padding: 24px 0;
+    display: flex;
+    
+    justify-content:space-between;
+}
+
+.wrapper .container{
+ width: 215px;
+ height: 150px;
+ border-radius: 6px;
+}
+
+#pic1{
+ background-image: url(./assets/galaxies1.jpg);
+ background-size: cover;
+}
+#pic2{
+ background-image: url(./assets/galaxies2.jpg);
+ background-size: cover;
+}
+#pic3{
+ background-image: url(./assets/galaexies3.jpg);
+ background-size: cover;
+}
+#pic4{
+ background-image: url(./assets/galaexies4.jpg);
+ background-size: cover;
+}
+
+.view-more{
+    text-align: end;
+}
+.view-more a{
+    text-decoration: none;
+    color: rgb(192, 129, 13);
+}
+#third{
+    padding: 24px 0;
+}
+#third .wrapper{
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.item {
+    width: 240px;
+}
+.item .item-title{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.item .item-title h2{
+    font-weight: bold;
+    color: rgb(94, 91, 91);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.item .item-title img{
+    height: 32px;
+    width: 32px;
+}
+
+.item .item-content{
+    color: rgb(94, 91, 91);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-bottom: 8px;
+}
+
+
+footer{
+    display: flex;
+    padding: 24px 130px;
+    background-color: #302F2F;
+    color: white;
+    justify-content: space-between;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

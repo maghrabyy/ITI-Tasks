@@ -1,0 +1,226 @@
+body{
+    margin: 0;
+}
+
+*{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+header{
+    background-image: url(./assets/bakery-header.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 400px;
+    position: relative;
+    padding: 26px 0;
+}
+
+.overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0,0.5);
+    
+}
+
+header .header-main{
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+
+nav{
+    margin: 26px auto;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
+    padding: 0 24px;
+    border-radius: 7px;
+}
+
+nav ul{
+    margin: 0;
+    display: flex;
+    gap: 6px;
+}
+
+nav ul li{
+    list-style-type: none;
+    padding: 2px;
+    cursor: pointer;
+    height: 100%;
+}
+
+nav ul li.active{
+    color:darkgray;
+}
+
+nav ul li:hover{
+    color:gray
+}
+
+
+nav .logo{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.header-content{
+    text-align: center;
+}
+
+.header-content h1.title{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    border-bottom: 2px solid white;
+    display: inline;
+    padding-bottom: 6px;
+}
+
+.header-content p.subtitle{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+
+}
+
+.three-dots{
+    margin: 18px 0;
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+}
+
+.dot{
+    height: 12px;
+    width: 12px;
+    border-radius: 100%;
+    background-color: rgba(69, 55, 42)
+}
+button{
+    background-color: rgba(69, 55, 42, 0.7);
+    border: none;
+    color: white;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+button:hover{
+    background-color: rgba(56, 42, 29, 0.7);
+}
+
+
+section{
+    padding: 12px 24px;
+}
+
+section .section-header{
+    text-align: center;
+    padding: 12px;
+}
+
+section .section-header h1.title{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;   
+}
+
+
+section .section-header p.subtitle{
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    margin: 12px 0;   
+    color: rgb(104, 114, 114);
+}
+
+section .section-content{
+    display: flex;
+    flex-wrap: wrap;
+    gap:16px;
+    justify-content: center;
+}
+.container{
+    width: 200px;
+    min-height: 200px;
+    background: rgba(135,66,9,0.6);
+    background: linear-gradient(90deg, rgba(135,66,9,0.6) 0%, rgba(108,63,7,0.6) 26%, rgba(99,52,11,0.6) 35%, rgba(161,103,8,0.6) 100%);
+    border-radius: 6px;
+    padding: 12px 24px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.container:hover{
+    transform: scale(1.05);
+}
+
+.container img{
+    width: 100%;
+}
+
+.container h1{
+    text-align: center;
+    color: white;
+}
+
+
+.container .portfolio-content{
+    transition: 0.3s;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(100%);
+    background-color: rgba(0, 0, 0,0.7);
+    width: 100%;
+}
+
+.container:hover .portfolio-content{
+    transform: translateY(0);
+}
+
+#prod1{
+    background-image: url(./assets/prod1.jpg);
+    background-size: cover;
+}
+
+#prod2{
+    background-image: url(./assets/prod2.jpg);
+    background-size: cover;
+}
+
+#prod3{
+    background-image: url(./assets/prod3.jpg);
+    background-size: cover;
+}
+
+#prod4{
+    background-image: url(./assets/prod4.jpg);
+    background-size: cover;
+}
+
+#prod5{
+    background-image: url(./assets/prod5.jpg);
+    background-size: cover;
+}
+
+#prod6{
+    background-image: url(./assets/prod6.jpg);
+    background-size: cover;
+}
+
+#prod7{
+    background-image: url(./assets/prod7.jpg);
+    background-size: cover;
+}
+
+#prod8{
+    background-image: url(./assets/prod8.jpg);
+    background-size: cover;
+}

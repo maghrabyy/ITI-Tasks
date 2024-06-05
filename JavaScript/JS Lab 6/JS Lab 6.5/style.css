@@ -1,0 +1,32 @@
+.container{
+    position: relative;
+    border: 2px solid red;
+    width: 400px;
+    height: 400px;
+}
+.container img{
+    position: absolute;
+}
+#top{
+    bottom: 0;
+    transform: translateX(-50%);
+    left: 50%;
+}
+#icon1{
+    transform: translateY(-50%);
+    top: 50%;
+    left: 0;
+}
+#icon2{
+    transform: translateY(-50%);
+    top: 50%;
+    right: 0;
+}
+
+.action-btns{
+    padding-top: 6px;
+}
+
+.icons-data{
+    color: blue;
+}
