@@ -6,20 +6,22 @@ function createPerson(fullName,age,jobTitle){
     }
 }
 
-function capitilizeFirstLetter(str){
+function capitalizeFirstLetter(str){
     var firstLetter = str.substring(0,1).toUpperCase()
     var remainingLetters = str.substring(1)
     return  firstLetter + remainingLetters
 }
 
 function getterSetterGen(){
-    for(let key in this){
-        if(typeof this[key] !== 'function'){
-            var keyName = capitilizeFirstLetter(key)
-            this[`get${keyName}`] = function(){ return this[key]}
-            this[`set${keyName}`] = function(val) {
-                this[key] = val
-            } 
-        }
+    for(var key in this){
+        (function(k){
+            if(typeof this[k] !== 'function'){
+                var keyName = capitalizeFirstLetter(k)
+                this[`get${keyName}`] = function(){ return this[k]}
+                this[`set${keyName}`] = function(val) { 
+                    this[k] = val
+                } 
+            }
+        }).call(this,key)
     }
 }
