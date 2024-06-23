@@ -1,0 +1,38 @@
+body{
+    background-color: #E7F0DC;
+}
+
+.btn{
+    margin: 2px 4px;
+    background-color: #597445;
+    color: white;
+    border-radius: 6px;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+#btnsContainer{
+    height: 50px;
+    padding: 70px;
+    border-radius: 6px;
+    background-color: #658147;
+    display: flex;
+    justify-content: center;
+}
+
+.postsContainer{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 40px;
+    border-radius: 6px;
+    background-color: #658147;
+    color: white;
+}
+
+.btn:hover{
+    background-color: #729762;
+}
+
+.btn.active{
+    background-color: #22350e;
+}
