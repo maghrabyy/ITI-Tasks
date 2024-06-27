@@ -12,7 +12,7 @@ $('.imgs-container img').on("click",function(){
     const selectedImgAlt = $($(this)).attr('alt');
     $('.img-preview').css("visibility","visible");
     setPreviewImg(selectedImgSrc,selectedImgAlt)
-    currentIndex = imgsSrcList.indexOf($(".slide-show img").attr("src"))
+    currentIndex = imgsSrcList.indexOf(selectedImgSrc)
 })
 
 $('.slide-show .prevBtn').on("click",()=>{
