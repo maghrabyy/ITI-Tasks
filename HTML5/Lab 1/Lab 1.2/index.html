@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Lab 1.2</title>
+    <style>
+        div{
+            display: grid;
+            grid-template-columns: 45px 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML5 Lab 1.2</h1>
+    <hr>
+    <div class="red-range-inpt">
+        <label for="redRange" style="color: red;">Red</label>
+        <input type="range" id="redRange" value="0" min="0" max="255" oninput="changeTextColor()">
+    </div>
+    <div class="green-range-inpt">
+        <label for="greenRange" style="color: green;">Green</label>
+        <input type="range" id="greenRange" value="0" min="0" max="255" oninput="changeTextColor()">
+    </div>
+    <div class="blue-range-inpt">
+        <label for="blueRange" style="color: blue;">Blue</label>
+        <input type="range" id="blueRange" value="0" min="0" max="255" oninput="changeTextColor()">
+    </div>
+    <h2 id="changeableTextColor">A changeable text color.</h2>
+    <script>
+        const changeableTxtCol = document.getElementById("changeableTextColor")
+        const colorRanges = document.querySelectorAll('input[type="range"]')
+        function changeTextColor(){
+            const redRange = colorRanges[0].valueAsNumber
+            const greenRange = colorRanges[1].valueAsNumber
+            const blueRange = colorRanges[2].valueAsNumber
+            changeableTxtCol.style.color = `rgb(${redRange},${greenRange},${blueRange})`
+        }
+    </script>
+</body>
+</html>

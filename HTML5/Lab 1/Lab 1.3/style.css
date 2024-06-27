@@ -1,0 +1,92 @@
+body{
+    margin: 0;
+}
+
+.musc-player-container{
+    padding-top: 12px;
+    background-image: url(assets/images/bg.svg);
+    background-size: cover;
+}
+
+.musc-player-container{
+    display: flex;
+    justify-content: center;
+}
+
+.player-header{
+    display: flex;
+    align-items: end;
+}
+
+.playing-music{
+    border: 2px solid #000;
+    border-radius: 6px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+.playing-music .music-title{
+    align-self: stretch;
+    margin: 8px;
+    border-top: 2px solid;
+    padding-top: 8px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.player-header .volume-controller{
+    margin-left: 10px;
+}
+
+.player-header .volume-controller input{
+    display: block;
+    transform: rotateX('100');
+    appearance: slider-vertical;
+    width: 10px;
+}
+
+.playing-music img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.music-controller{
+    width: 350px
+}
+
+.music-controller .music-time-range input{
+    width: 100%;
+    margin: 8px 0;
+}
+
+.music-controller .audio-control{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    font-size: 2.4rem;
+}
+
+.playBtns{
+    display: flex;
+    gap: 8px;
+
+}
+.music-controller .audio-control{
+    display: flex;
+    justify-content: space-between;
+}
+
+.music-controller .audio-control .music-time-num{
+    font-size: 1.4rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.audio-wave-animation img{
+    width: 350px;
+}
+
+.btn{
+    cursor: pointer;
+}
