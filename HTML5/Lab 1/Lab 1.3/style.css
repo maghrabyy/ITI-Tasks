@@ -41,7 +41,6 @@ body{
 
 .player-header .volume-controller input{
     display: block;
-    transform: rotateX('100');
     appearance: slider-vertical;
     width: 10px;
 }

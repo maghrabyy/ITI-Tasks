@@ -101,4 +101,15 @@ audioPlayer.addEventListener("durationchange",()=>{
     musicTime.textContent = "00" + ":" + (audioPlayer.duration/60).toFixed(2).replace(".",":")
     playPauseBtn.classList.remove("fa-pause")
     playPauseBtn.classList.add("fa-play")
+    if(musicIndex === 0){
+        backwardBtn.style.color = "#474444"
+    }else{
+        backwardBtn.style.color = "#000"
+    }
+
+    if(musicIndex === musicList.length-1){
+        forwardBtn.style.color = "#474444"
+    }else{
+        forwardBtn.style.color = "#000"
+    }
 })
