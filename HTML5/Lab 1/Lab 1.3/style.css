@@ -41,7 +41,8 @@ body{
 
 .player-header .volume-controller input{
     display: block;
-    appearance: slider-vertical;
+    writing-mode: vertical-lr;
+    direction: rtl; 
     width: 10px;
 }
 

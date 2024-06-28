@@ -35,7 +35,7 @@ function setMusic(index){
 }
 setMusic(musicIndex)
 
-playPauseBtn.addEventListener("click",()=>{
+const togglePlayAudio = ()=>{
     if(audioPlayer.paused){
         audioPlayer.play()
         playPauseBtn.classList.remove("fa-play")
@@ -45,9 +45,11 @@ playPauseBtn.addEventListener("click",()=>{
         playPauseBtn.classList.remove("fa-pause")
         playPauseBtn.classList.add("fa-play")
     }
-})
+}
 
-toggleMuteBtn.addEventListener("click",()=>{
+playPauseBtn.addEventListener("click",togglePlayAudio)
+
+const toggleMute = ()=>{
     if(!audioPlayer.muted){
         audioPlayer.muted = true
         toggleMuteBtn.classList.remove("fa-volume-high")
@@ -57,25 +59,31 @@ toggleMuteBtn.addEventListener("click",()=>{
         toggleMuteBtn.classList.remove("fa-volume-xmark")
         toggleMuteBtn.classList.add("fa-volume-high")
     }
-})
+}
 
-replayBtn.addEventListener("click",()=>{
-    audioPlayer.load()
-})
+toggleMuteBtn.addEventListener("click",toggleMute)
 
-backwardBtn.addEventListener("click",()=>{
+const replayMusic = ()=>audioPlayer.load()
+
+replayBtn.addEventListener("click",replayMusic)
+
+const musicBackward = ()=>{
     if(musicIndex > 0){
         musicIndex--
         setMusic(musicIndex)
     }
-})
+}
 
-forwardBtn.addEventListener("click",()=>{
+backwardBtn.addEventListener("click",musicBackward)
+
+const musicForward = ()=>{
     if(musicIndex < musicList.length-1){
         musicIndex++
         setMusic(musicIndex)
     }
-})
+}
+
+forwardBtn.addEventListener("click",musicForward)
 
 volumeRange.addEventListener("input",(vol)=>{
     audioPlayer.volume = vol.target.valueAsNumber
@@ -112,4 +120,17 @@ audioPlayer.addEventListener("durationchange",()=>{
     }else{
         forwardBtn.style.color = "#000"
     }
+})
+
+document.addEventListener("keydown",(e)=>{
+    if(e.code === 'Space')
+        togglePlayAudio()
+    if(e.code === 'ArrowLeft')
+        musicBackward()
+    if(e.code === 'ArrowRight')
+        musicForward()
+    if(e.code === 'KeyM')
+        toggleMute()
+    if(e.code === 'KeyR')
+        replayMusic()
 })
