@@ -106,7 +106,8 @@ audioPlayer.addEventListener("timeupdate",()=>{
 
 audioPlayer.addEventListener("durationchange",()=>{
     timeRange.setAttribute("max",audioPlayer.duration)
-    musicTime.textContent = "00" + ":" + (audioPlayer.duration/60).toFixed(2).replace(".",":")
+    const musicDuration = (audioPlayer.duration/60).toFixed(2).replace(".",":")
+    musicTime.textContent = "00" + ":" + musicDuration
     playPauseBtn.classList.remove("fa-pause")
     playPauseBtn.classList.add("fa-play")
     if(musicIndex === 0){

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Lab 1.1</title>
+    <style>
+        input[type="email"],input[type="password"]{
+            width: 200px;
+        }
+        div:not(.rememberme-checkbox){
+            display: grid;
+            margin-bottom: 8px;
+            grid-template-columns: 70px 200px;
+        }
+        .rememberme-checkbox{
+            margin: 8px 0;
+        }
+    </style>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>HTML5 Lab 1.1</h1>
+    <hr>
+    <form action="#">
+        <h2>Login Here.</h2>
+        <div class="email-input">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email address here." pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" required>
+        </div>
+        <div class="password-input">
+            <label for="password">Password</label>
+            <input type="password" id="password" minlength="8" maxlength="18" required placeholder="Enter your username here.">
+        </div>
+        <div class="rememberme-checkbox">
+            <input type="checkbox" id="rememberMe">
+            <label for="rememberMe">Remember me?</label>
+        </div>
+        <input type="submit" id="loginBtn" value="Login">
+    </form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Lab 2.1</title>
+    <script src="script.js" defer></script>
+    <style>
+        #map{
+            height: 450px;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML5 Lab 2.1</h1>
+    <hr>
+    <label for="countries">Select a country</label>
+    <select id="countries">
+        <option value="lat:38.889805, long:-77.009056">USA</option>
+        <option value="lat:51.213890, long:-102.462776">Canada</option>
+        <option value="lat:51.509865, long:-0.118092">UK</option>
+        <option value="lat:51.926517, long:4.462456">Netherlands</option>
+        <option value="lat:59.911491, long:10.757933">Norway</option>
+        <option value="lat:-33.865143, long:151.209900">Australia</option>
+    </select>
+    <input id="findBtn" type="submit" value="Find Location">
+    <input id="myLocationBtn" type="submit" value="My Location">
+    <hr>
+    <div id="map"></div>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+    defer
+  ></script>
+</body>
+</html>
