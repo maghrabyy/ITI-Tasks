@@ -93,10 +93,15 @@ timeRange.addEventListener("input",(time)=>{
     audioPlayer.currentTime = time.target.valueAsNumber
 })
 
+const convertSecondsToTimer = (time)=>{
+    const minutes = Math.floor(time/60)
+    const seconds = parseInt(time - minutes * 60)
+    return minutes + ":" + (seconds > 9? seconds : "0" + seconds)
+}  
 audioPlayer.addEventListener("timeupdate",()=>{
-    const currentTime = (audioPlayer.currentTime/60).toFixed(2).replace(".",":")
-    const musicDuration = (audioPlayer.duration/60).toFixed(2).replace(".",":")
-    musicTime.textContent = currentTime + ":" + musicDuration
+    const currentTime = convertSecondsToTimer(audioPlayer.currentTime)
+    const musicDuration = convertSecondsToTimer(audioPlayer.duration)
+    musicTime.textContent = currentTime + " : " + musicDuration
     timeRange.value = audioPlayer.currentTime
     if(currentTime == musicDuration){
         playPauseBtn.classList.remove("fa-pause")
@@ -106,8 +111,8 @@ audioPlayer.addEventListener("timeupdate",()=>{
 
 audioPlayer.addEventListener("durationchange",()=>{
     timeRange.setAttribute("max",audioPlayer.duration)
-    const musicDuration = (audioPlayer.duration/60).toFixed(2).replace(".",":")
-    musicTime.textContent = "00" + ":" + musicDuration
+    const musicDuration = convertSecondsToTimer(audioPlayer.duration)
+    musicTime.textContent = "0:00" + " : " + musicDuration
     playPauseBtn.classList.remove("fa-pause")
     playPauseBtn.classList.add("fa-play")
     if(musicIndex === 0){

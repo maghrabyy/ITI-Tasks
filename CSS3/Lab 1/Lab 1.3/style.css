@@ -1,0 +1,61 @@
+.card{
+    border: 4px solid red;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px 12px;
+    width: 260px;
+    height: 400px;
+}
+
+.card .card-type{
+    font-size: 3.4rem;
+    font-family: "Jim Nightshade", cursive;
+}
+.card .card-type:last-child{
+    align-self: flex-end;
+}
+
+
+.card .card-shape{
+    align-self: center;
+}
+
+.card .card-shape div:first-child{
+    transform: rotate(180deg) translateY(-35px) translateX(18px);
+
+}
+
+#triangle-up {
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 80px solid #000;
+}
+
+#heart {
+    position: relative;
+    width: 100px;
+    height: 90px;
+  }
+  #heart:before,
+  #heart:after {
+    position: absolute;
+    content: "";
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background: #000;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+  }
+  #heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+  }

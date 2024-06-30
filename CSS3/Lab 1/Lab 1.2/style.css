@@ -1,0 +1,61 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+
+.traffic-light{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+}
+
+.lights-container{
+    width: 200px;
+    height: 400px;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.lights-container div:nth-child(1){
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: green;
+}
+
+.lights-container div:nth-child(1):hover{
+    box-shadow: 0 0 20px 10px green;
+}
+
+.lights-container div:nth-child(2){
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: yellow;
+}
+
+.lights-container div:nth-child(2):hover{
+    box-shadow: 0 0 20px 10px yellow;
+}
+
+.lights-container div:nth-child(3){
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.lights-container div:nth-child(3):hover{
+    box-shadow: 0 0 20px 10px red;
+}
+
+.traffic-light-column{
+    width: 30px;
+    height: 200px;
+    background-color: #000;
+}
