@@ -30,21 +30,31 @@ p{
     font-weight: 500;
     color: var(--light-lavender);
 }
+
 html,body{
     margin: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
+@media only screen and (min-width: 768px) {
+    html,body{
+        align-items: center;
+    }
+}
 
 /* Main Container Styles */
 main{
     display: flex;
     flex-wrap: wrap;
     box-shadow: 0.5rem 0.5rem 0.5rem var(--light-lavender);
-    border-radius: 2rem;
+}
+
+@media only screen and (min-width: 768px) {
+    main{
+        border-radius: 2rem;
+    }
 }
 
 section{
@@ -60,7 +70,13 @@ section:first-child{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 2rem;
+    border-radius: 0 0 2rem 2rem;
+}
+
+@media only screen and (min-width: 768px) {
+    section:first-child{
+        border-radius: 2rem;
+    }
 }
 
 section:first-child .title{
@@ -91,10 +107,6 @@ section:first-child .evaluation{
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-section:first-child .evaluation p{
-    width: 70%;
 }
 
 /* Summary Section Styles */
