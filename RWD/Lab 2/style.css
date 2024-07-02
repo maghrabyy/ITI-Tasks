@@ -1,0 +1,130 @@
+:root{
+    --moderateViolet:hsl(263, 55%, 52%);
+    --darkGreyishBlue:hsl(217, 19%, 35%);
+    --darkBlackishBlue:hsl(219, 29%, 14%);
+    --white:hsl(0, 0%, 100%);
+    --lightGrey:hsl(0, 0%, 81%);
+    --lightGreyishBlue:hsl(210, 46%, 95%);
+}
+
+html,body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: var(--lightGreyishBlue);
+    font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+h2,h3{
+    margin:0.5rem 0;
+    font-size: 1.1rem;
+}
+
+h2{
+    color:hsl(217, 19%, 35%)
+}
+h3{
+    color:hsl(217, 19%, 35%,50%)
+}
+p{
+    color:hsl(217, 19%, 35%,70%)
+}
+
+h2:not(.person-card:nth-child(3) h2,.person-card:nth-child(5) h2){
+    color: var(--white)
+}
+
+h3:not(.person-card:nth-child(3) h3,.person-card:nth-child(5) h3){
+    color: hsl(0, 0%, 100%,50%);
+}
+
+p:not(.person-card:nth-child(3) p,.person-card:nth-child(5) p){
+    color: hsl(0, 0%, 100%,70%)
+}
+
+
+main.container{
+    display: grid;
+    grid-template-areas: 
+    "first"
+    "second"
+    "third"
+    "fourth"
+    "fifth";
+    margin: 2rem 1rem;
+    gap: 1rem;
+}
+
+@media screen and (min-width:768px) {
+    main.container{
+        grid-template-areas: 
+        "first first first fifth"
+        "second third third fifth"
+        "fourth fourth fourth fifth";
+    }
+}
+
+@media screen and (min-width:1024px) {
+    main.container{
+        grid-template-areas: 
+        "first first second fifth"
+        "third fourth fourth fifth"
+    }
+}
+
+
+.person-card{
+    border-radius: 0.5rem;
+    padding: 1rem 1.5rem;
+    position: relative;
+    z-index: 0;
+}
+
+.person-card img.quote{
+    position: absolute;
+    z-index: -1;
+    top: 2%;
+    right: 4%;
+}
+
+main.container .person-card .person{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+main.container .person-card .person img{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.person-card:nth-child(1){
+    background-color: var(--moderateViolet);
+    grid-area: first;
+}
+
+.person-card:nth-child(2){
+    background-color: var(--darkGreyishBlue);
+    grid-area: second;
+
+}
+
+.person-card:nth-child(3){
+    background-color: var(--white);
+    grid-area: third;
+
+}
+
+.person-card:nth-child(4){
+    background-color: var(--darkBlackishBlue);
+    grid-area: fourth;
+}
+
+.person-card:nth-child(5){
+    background-color: var(--white);
+    grid-area: fifth;
+}
+
