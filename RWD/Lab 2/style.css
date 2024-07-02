@@ -53,16 +53,17 @@ main.container{
     "third"
     "fourth"
     "fifth";
-    margin: 2rem 1rem;
+    margin: 2rem;
     gap: 1rem;
 }
 
 @media screen and (min-width:768px) {
     main.container{
+        grid-template-columns: repeat(4,1fr);
         grid-template-areas: 
         "first first first fifth"
-        "second third third fifth"
-        "fourth fourth fourth fifth";
+        "third second second fifth"
+        "fourth fourth fourth fourth";
     }
 }
 
@@ -70,7 +71,7 @@ main.container{
     main.container{
         grid-template-areas: 
         "first first second fifth"
-        "third fourth fourth fifth"
+        "third fourth fourth fifth";
     }
 }
 
