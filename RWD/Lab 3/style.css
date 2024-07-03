@@ -1,0 +1,63 @@
+:root{
+    --softOrange:hsl(35, 77%, 62%);
+    --softRed:hsl(5, 85%, 63%);
+    --offWhite: hsl(36, 100%, 99%);
+    --grayishBlue: hsl(233, 8%, 79%);
+    --darkGrayishBlue:hsl(236, 13%, 42%);
+    --veryDarkBlue: hsl(240, 100%, 5%);
+}
+
+body{
+    font-family: "Inter", sans-serif;
+}
+
+
+.text-softorange{
+    color: var(--softOrange);
+}
+
+.text-softred{
+    color: var(--softRed);
+}
+
+.text-offwhite{
+    color: var(--offWhite);
+}
+
+.text-grayishblue{
+    color: var(--grayishBlue);
+}
+
+.text-darkgrayishblue{
+    color: var(--darkGrayishBlue);
+}
+
+
+.text-verydarkblue{
+    color: var(--veryDarkBlue);
+}
+
+.bg-softorange{
+    background-color: var(--softOrange);
+}
+
+.bg-softred{
+    background-color: var(--softRed);
+}
+
+.bg-offwhite{
+    background-color: var(--offWhite);
+}
+
+.bg-grayishblue{
+    background-color: var(--grayishBlue);
+}
+
+.bg-darkgrayishblue{
+    background-color: var(--darkGrayishBlue);
+}
+
+
+.bg-verydarkblue{
+    background-color: var(--veryDarkBlue);
+}
