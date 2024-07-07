@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SASS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+                <li><a href="#">Link 4</a></li>
+            </ul>
+        </nav>
+        <div class="main-header flex flex-col align-center gap-1 bg-black text-white py-3">
+            <h5>Hello World</h5>
+            <h1>SASS Layout</h1>
+            <button class="btn-light">Learn More</button>
+        </div>        
+    </header>
+    <main>
+        <section class="landing-section row justify-center py-5 gap-1">
+            <div class="content flex flex-col gap-2 align-start col-11 col-tablet-5">
+                <h3>We know design.</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo labore perspiciatis tempore quia odit libero asperiores perferendis nostrum rerum ipsam.</p>
+                <button class="btn-dark">View Our Works</button>
+            </div>
+            <img src="assets/minimalist14.jpg" alt="" class="col-11 col-tablet-5">
+        </section>
+        <section class="cards row gap-1 justify-center my-1">
+            <div class="card col-11">
+                <div class="card-header">
+                    <h2 class="title">Header</h2>
+                </div>
+                <div class="card-content">
+                    <h2>London</h2>
+                    <p>London is the capital city of England. It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.
+                        Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it
+                        Londinium.</p>
+                    <p>
+                        By the way, you can add a close icon to all containers if you want the ability to hide them. Look to your right!
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <h4>Footer</h4>
+                    <p>Footer information goes here.</p>
+                </div>
+            </div>
+            <!-- <h2 class="centeredTitle col-12">Card Color Themes</h2> -->
+            <div class="card col-11 col-tablet-6">
+                <div class="card-header">
+                    <h2 class="title">Theme Indigo</h2>
+                </div>
+                <div class="card-content flex flex-col gap-2">
+                    <div class="card-content-row"><h3>Movies 2014</h3></div>
+                    <div class="card-content-row">
+                        <h3>The Fault in Our Stars</h3>
+                        <p>Touching, gripping and genuinely well made</p>
+                    </div>
+                    <div class="card-content-row">
+                        <h3>The Avengers</h3>
+                        <p>A huge success for Marvel and Disney.</p>
+                    </div>
+                </div>
+                <div class="card-footer">Next</div>
+            </div>
+            <div class="card col-11 col-tablet-5">
+                <div class="card-header">
+                    <h2 class="title">Theme</h2>
+                </div>
+                <div class="card-content flex flex-col gap-2">
+                    <div class="card-content-row"><h3>Movies 2014</h3></div>
+                    <div class="card-content-row">
+                        <h3>The Fault in Our Stars</h3>
+                        <p>Touching, gripping and genuinely well made</p>
+                    </div>
+                    <div class="card-content-row">
+                        <h3>The Avengers</h3>
+                        <p>A huge success for Marvel and Disney.</p>
+                    </div>
+                </div>
+                <div class="card-footer">Next</div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

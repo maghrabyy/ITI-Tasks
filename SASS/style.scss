@@ -1,0 +1,208 @@
+$colors:(
+    "primary":#607d8b,
+    "secondary":#f1f1f1,
+    "black":#000000,
+    "white":#ffffff,
+    "blue":#3f51b5,
+    "grey":#616161
+);
+
+
+//remove default margins
+body,p{
+    margin: 0;
+}
+
+@for $i from 1 through 6{
+    h#{$i}{
+        margin:0;
+    }
+}
+
+//Btn Styles
+@mixin buttonStyle($theme){
+    padding: 1rem;
+    color: map-get($colors, "white");
+    border: none;
+
+    @if($theme == dark){
+        background-color: map-get($colors, "black");
+        &:hover{
+            background-color: rgba($color: map-get($colors, "black"), $alpha: 0.8);
+        }
+    }
+    @else if($theme == light){
+        background-color: map-get($colors, "grey");
+        &:hover{
+            background-color: rgba($color: map-get($colors, "grey"), $alpha: 0.7);
+        }
+        
+
+    }
+}
+
+.btn-dark{
+    @include buttonStyle(dark)
+}
+
+.btn-light{
+    @include buttonStyle(light)
+}
+
+//Color styles
+@for $i from 1 through length($colors){
+    .bg-#{nth(nth($colors,$i),1)}{
+        background-color: nth(nth($colors,$i),2);
+    }
+    .text-#{nth(nth($colors,$i),1)}{
+        color: nth(nth($colors,$i),2);
+    }
+}
+
+//implement Bootstrap Flex and grid styles
+.flex{
+    display: flex;
+}
+
+.flex-col{
+    flex-direction: column;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+$totalCols:12;
+
+@function calcColumns($cols){
+    @return percentage($cols/$totalCols)
+}
+
+$breakpoints:(
+    "mobile":320px,
+    "mobile-lg":425px,
+    "tablet":768px,
+    "laptop":1024px,
+    "laptop-lg":1440px
+);
+ 
+@mixin mediaQuery($breakPoint){
+            @media screen and (min-width:$breakPoint) {
+                @content
+            }
+}
+
+@for $col from 1 through $totalCols{
+    .col-#{$col}{
+        max-width: calcColumns($col);
+        min-width: calcColumns($col);
+    }
+}
+
+@for $bp from 1 through length($breakpoints){
+    @for $col from 1 through $totalCols{
+        .col-#{nth(nth($breakpoints,$bp),1)}-#{$col}{
+            @include mediaQuery(nth(nth($breakpoints,$bp),2)){
+                max-width: calcColumns($col);
+                min-width: calcColumns($col);
+            }
+        }
+    }
+}
+
+@for $i from 1 through 5{
+    .gap-#{$i}{
+        gap:#{$i}rem
+    }
+    .py-#{$i}{
+        padding:#{$i}rem 0;
+    }
+    .my-#{$i}{
+        margin:#{$i}rem 0;
+    }
+}
+
+$justify-align: (
+    "center": center,
+    "start": flex-start,
+    "end": flex-end
+);
+
+@for $i from 1 through  length($justify-align){
+    .justify-#{nth(nth($justify-align,$i),1)}{
+        justify-content: nth(nth($justify-align,$i),2);
+    }//
+    .align-#{nth(nth($justify-align,$i),1)}{
+        align-items: nth(nth($justify-align,$i),2);
+    }
+}
+//content styling
+body{
+    background-color: map-get($colors, "secondary" );
+}
+
+nav {
+    ul{
+        display: flex;
+        gap:1rem;
+        li{
+            a{
+                color:#000000;
+                text-decoration: none;
+            }
+            list-style: none;
+        }
+    }
+}
+
+@mixin cardFooterHeader($bgColor){
+    background-color: $bgColor;
+    color: map-get($colors ,"white");
+    padding: 1rem;
+}
+
+@mixin cardContentRow{
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e2e2e2;
+    color: map-get($colors ,"black");
+}
+
+
+@mixin card($themeColor){
+    .card-header{
+        @include cardFooterHeader($themeColor);
+        h2.title{
+            font-weight: bold;
+        }
+    }
+    .card-content{
+        padding: 1rem;
+        p{
+            margin: 0.5rem 0;
+        }
+        .card-content-row:first-child{
+            color: $themeColor;
+        }
+        .card-content-row{
+            @include cardContentRow
+        }
+    }
+    .card-footer{
+        @include cardFooterHeader($themeColor);
+        padding: 0.3rem 1rem;
+    }
+}
+
+.card:nth-child(1){
+    @include card(map-get($colors,"primary"));
+    .card-footer{
+        padding: 0.5rem 1rem;
+    }
+}
+.card:nth-child(2){
+    @include card(map-get($colors,"blue"))
+}
+.card:nth-child(3){
+    @include card(map-get($colors,"black"))
+}
