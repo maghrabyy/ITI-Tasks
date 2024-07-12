@@ -1,0 +1,19 @@
+{
+    "users":[
+        {
+            "name":"Mahmoud Elmaghraby",
+            "age":24,
+            "jobTitle":"SW Engineer"
+        },
+        {
+            "name":"Ahmed",
+            "age":28,
+            "jobTitle":"UI/UX Designer"
+        },
+        {
+            "name":"Khalid",
+            "age":25,
+            "jobTitle":"Backend developer"
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NodeJS Lab 1</title>
+</head>
+<style>
+    #users-list{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .user-item{
+        padding: 1rem;
+        background-color: rgb(48, 48, 141);
+        color: #fff;
+        border-radius: 1rem;
+    }
+</style>
+<body>
+    <h1>NodeJS Lab 1</h1>
+    <hr>
+    <div id="users-list"></div>
+    <script>
+        const usersList = document.getElementById("users-list")
+        fetch("http://127.0.0.1:5050/").then((res)=>res.json()).then((usersData)=>{
+            usersData.users.map(user=>{
+                const userItem = document.createElement("div")
+                userItem.classList.add("user-item")
+                const userName = document.createElement("div")
+                const userAge = document.createElement("div")
+                const userJobTitle = document.createElement("div")
+                userName.textContent = "Name: " + user.name
+                userAge.textContent = "Age: " + user.age
+                userJobTitle.textContent = "Job Title: " + user.jobTitle
+                userItem.append(userName,userAge,userJobTitle)
+                usersList.append(userItem)
+            })
+        }).catch(e=>{
+            console.log(e)
+        })
+    </script>
+</body>
+</html>
