@@ -30,7 +30,7 @@ function App() {
           </div>))}
       </div>
       <hr />
-      <div className="todos-list flex flex-wrap gap-2 my-2 mx-1">
+      <div className="todos-list grid md:grid-cols-3 grid-cols-2 gap-2 my-2 mx-1">
           {todoList.map(todo=>(
             <div className="todo-item p-2 bg-purple-800 text-white rounded-md" key={todo.id}>
               {todo.title}
