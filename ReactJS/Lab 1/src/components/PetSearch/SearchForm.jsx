@@ -3,14 +3,18 @@ import { useBreedsList } from '../../customHooks/useBreedsList';
 
 const animalTypes = ['dog', 'cat', 'bird', 'reptile', 'rabbit'];
 
-export const SearchForm = ({ setIsResultLoading, setPetsList }) => {
+export const SearchForm = ({
+  setIsResultLoading,
+  setPetsList,
+  setPetError,
+}) => {
   const [location, setLocation] = useState('');
   const [animalType, setAnimalType] = useState('');
   const [animalBreed, setAnimalBreed] = useState('');
   const { breedList, isLoading, error } = useBreedsList(animalType);
-
   const fetchPets = () => {
     setIsResultLoading(true);
+    setPetError(null);
     fetch(
       `http://pets-v2.dev-apis.com/pets?animal=${animalType}&location=${location}&breed=${animalBreed}`,
     )
@@ -18,7 +22,7 @@ export const SearchForm = ({ setIsResultLoading, setPetsList }) => {
       .then((data) => {
         setPetsList(data.pets);
       })
-      .catch((e) => console.log(e))
+      .catch((e) => setPetError(e.message))
       .finally(() => {
         setIsResultLoading(false);
       });
@@ -26,6 +30,9 @@ export const SearchForm = ({ setIsResultLoading, setPetsList }) => {
   useEffect(() => {
     fetchPets();
   }, []);
+  useEffect(() => {
+    setAnimalBreed('');
+  }, [animalType]);
   const submitSearch = (e) => {
     e.preventDefault();
     fetchPets();
@@ -44,7 +51,7 @@ export const SearchForm = ({ setIsResultLoading, setPetsList }) => {
         placeholder="Pet Location"
         type="text"
         id="animal-search"
-        className="rounded-md p-1"
+        className="rounded-md py-1 px-2"
       />
       <select
         value={animalType}
@@ -62,7 +69,7 @@ export const SearchForm = ({ setIsResultLoading, setPetsList }) => {
         })}
       </select>
       <select
-        disabled={animalType || error ? false : true}
+        disabled={animalType && !error ? false : true}
         value={animalBreed}
         onChange={(e) => setAnimalBreed(e.target.value)}
         id="animal-breed"
@@ -77,7 +84,11 @@ export const SearchForm = ({ setIsResultLoading, setPetsList }) => {
           );
         })}
       </select>
-      {error && <h1>Error occurred: {error.message}</h1>}
+      {error && (
+        <h1 className="text-red-600 font-bold">
+          Error occurred: {error.message}
+        </h1>
+      )}
       <button className="bg-slate-900 hover:bg-slate-800 py-2 px-4 rounded-md text-white">
         Search
       </button>
