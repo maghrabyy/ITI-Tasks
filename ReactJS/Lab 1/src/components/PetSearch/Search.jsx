@@ -6,13 +6,13 @@ export const Search = () => {
   const [petsList, setPetsList] = useState([]);
   const [isResultLoading, setIsResultLoading] = useState(false);
   return (
-    <div className="search flex flex-col items-center">
+    <div className="search flex flex-col w-full">
       <SearchForm
         setIsResultLoading={setIsResultLoading}
         setPetsList={setPetsList}
       />
       {isResultLoading ? (
-        <div className="loader"></div>
+        <div className="loader self-center"></div>
       ) : (
         <SearchResult petsList={petsList} />
       )}

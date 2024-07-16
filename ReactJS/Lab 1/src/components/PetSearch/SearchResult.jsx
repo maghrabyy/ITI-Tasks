@@ -16,6 +16,7 @@ export const SearchResult = ({ petsList }) => {
             name={pet.name}
             type={pet.animal}
             breed={pet.breed}
+            desc={pet.description}
             location={`${pet.state}, ${pet.city}`}
           />
         );
