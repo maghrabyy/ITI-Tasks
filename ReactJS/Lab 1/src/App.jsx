@@ -9,7 +9,7 @@ const App = () => {
     defaultOptions: {
       queries: {
         staleTime: Infinity,
-        cacheTime: Infinity,
+        gcTime: Infinity,
       },
     },
   });
