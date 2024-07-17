@@ -7,7 +7,7 @@ export const Search = () => {
   const [isResultLoading, setIsResultLoading] = useState(false);
   const [petError, setPetError] = useState(null);
   return (
-    <div className="search flex flex-col w-full">
+    <div className="search flex flex-col gap-2 w-full mt-[56px]">
       <SearchForm
         setIsResultLoading={setIsResultLoading}
         setPetsList={setPetsList}

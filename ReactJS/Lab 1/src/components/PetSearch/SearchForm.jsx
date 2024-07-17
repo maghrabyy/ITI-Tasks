@@ -40,7 +40,7 @@ export const SearchForm = ({
   return (
     <form
       onSubmit={submitSearch}
-      className="rounded-md border-slate-800 m-2 gap-2 inline-flex flex-col bg-black py-3 px-8 bg-opacity-60"
+      className="rounded-md border-slate-800 gap-2 inline-flex flex-col bg-black py-3 px-8 bg-opacity-60"
     >
       <label className="text-white font-bold text-2xl" htmlFor="animal-search">
         Search for pet to adopt.
@@ -89,7 +89,7 @@ export const SearchForm = ({
           Error occurred: {error.message}
         </h1>
       )}
-      <button className="bg-slate-900 hover:bg-slate-800 py-2 px-4 rounded-md text-white">
+      <button className="bg-orange-700 hover:bg-orange-800 py-2 px-4 rounded-md text-white">
         Search
       </button>
     </form>
