@@ -1,41 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useBreedsList } from '../../customHooks/useBreedsList';
 
 const animalTypes = ['dog', 'cat', 'bird', 'reptile', 'rabbit'];
 
-export const SearchForm = ({
-  setIsResultLoading,
-  setPetsList,
-  setPetError,
-}) => {
-  const [location, setLocation] = useState('');
+export const SearchForm = ({ setFormState }) => {
   const [animalType, setAnimalType] = useState('');
-  const [animalBreed, setAnimalBreed] = useState('');
-  const { breedList, isLoading, error } = useBreedsList(animalType);
-  const fetchPets = () => {
-    setIsResultLoading(true);
-    setPetError(null);
-    fetch(
-      `http://pets-v2.dev-apis.com/pets?animal=${animalType}&location=${location}&breed=${animalBreed}`,
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setPetsList(data.pets);
-      })
-      .catch((e) => setPetError(e.message))
-      .finally(() => {
-        setIsResultLoading(false);
-      });
-  };
-  useEffect(() => {
-    fetchPets();
-  }, []);
-  useEffect(() => {
-    setAnimalBreed('');
-  }, [animalType]);
+  const { breedList, isBreedsLoading, breedsError } = useBreedsList(animalType);
+
   const submitSearch = (e) => {
     e.preventDefault();
-    fetchPets();
+    const formData = new FormData(e.target);
+    setFormState({
+      location: formData.get('animalLocation'),
+      animalType: formData.get('animalType'),
+      animalBreed: formData.get('animalBreed') ?? '',
+    });
   };
   return (
     <form
@@ -46,8 +25,7 @@ export const SearchForm = ({
         Search for pet to adopt.
       </label>
       <input
-        value={location}
-        onChange={(e) => setLocation(e.target.value)}
+        name="animalLocation"
         placeholder="Pet Location"
         type="text"
         id="animal-search"
@@ -56,6 +34,7 @@ export const SearchForm = ({
       <select
         value={animalType}
         onChange={(e) => setAnimalType(e.target.value)}
+        name="animalType"
         id="animal-type"
         className="p-1 rounded-md"
       >
@@ -69,13 +48,14 @@ export const SearchForm = ({
         })}
       </select>
       <select
-        disabled={animalType && !error ? false : true}
-        value={animalBreed}
-        onChange={(e) => setAnimalBreed(e.target.value)}
+        name="animalBreed"
+        disabled={animalType && !breedsError ? false : true}
         id="animal-breed"
         className="p-1 rounded-md"
       >
-        <option value="">{isLoading ? 'Loading...' : 'Select a breed'}</option>
+        <option value="">
+          {isBreedsLoading ? 'Loading...' : 'Select a breed'}
+        </option>
         {breedList.map((breed) => {
           return (
             <option value={breed} key={breed}>
@@ -84,14 +64,12 @@ export const SearchForm = ({
           );
         })}
       </select>
-      {error && (
+      {breedsError && (
         <h1 className="text-red-600 font-bold">
-          Error occurred: {error.message}
+          Error occurred: {breedsError.message}
         </h1>
       )}
-      <button className="bg-orange-700 hover:bg-orange-800 py-2 px-4 rounded-md text-white">
-        Search
-      </button>
+      <button className="btn">Search</button>
     </form>
   );
 };
