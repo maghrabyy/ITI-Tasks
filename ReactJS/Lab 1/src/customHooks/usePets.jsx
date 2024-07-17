@@ -3,8 +3,9 @@ import { fetchPetsList } from '../utils/APIs/fetchPets';
 
 export const usePets = (animal) => {
   const petsQuery = useQuery(['pets', animal], fetchPetsList);
-  const petsList = petsQuery?.data?.pets ?? [];
-  const petsError = petsQuery.error;
-  const isPetsLoading = petsQuery.isLoading;
-  return { petsList, petsError, isPetsLoading };
+  return {
+    petsList: petsQuery?.data?.pets ?? [],
+    petsError: petsQuery.error,
+    isPetsLoading: petsQuery.isLoading,
+  };
 };

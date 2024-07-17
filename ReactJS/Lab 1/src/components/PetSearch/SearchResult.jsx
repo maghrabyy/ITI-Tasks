@@ -1,7 +1,16 @@
 import { PetList } from '../PetList';
 import { Pet } from '../Pet';
+import { usePets } from '../../customHooks/usePets';
 
-export const SearchResult = ({ petsList }) => {
+export const SearchResult = ({ formState }) => {
+  const { petsList, isPetsLoading, petsError } = usePets(formState);
+  if (isPetsLoading) return <div className="loader self-center"></div>;
+  if (petsError)
+    return (
+      <div className="error-pet-fetch text-2xl font-bold text-white p-4 text-center bg-red-600 bg-opacity-60">
+        Error occurred: {petsError.message}
+      </div>
+    );
   return petsList.length === 0 ? (
     <div className="empty-pets-list text-2xl font-bold text-white p-4 text-center bg-black bg-opacity-60">
       No pets found.
