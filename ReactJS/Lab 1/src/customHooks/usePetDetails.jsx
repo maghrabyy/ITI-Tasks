@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchAnimal } from '../utils/APIs/fetchAnimal';
+import { fetchAnimal } from '../APIs/fetchAnimal';
 
 export const usePetDetails = (id) => {
   const petQuery = useQuery({

@@ -1,12 +1,12 @@
 import { petTypeIcon } from '../utils/petsIcons';
+import { Carousel } from './Carousal';
+import { FaHome } from 'react-icons/fa';
 
 export const PetDetails = ({ pet }) => {
   return (
     <div className="detail-page">
-      <div className="pet-detail grid grid-cols-4 gap-4 text-white bg-black bg-opacity-60 rounded-md p-4">
-        <div className="pet-main-img">
-          <img src={pet.images[0]} alt={pet.name} />
-        </div>
+      <div className="pet-detail grid-cols-1 grid md:grid-cols-4 gap-4 text-white bg-black bg-opacity-60 rounded-md p-4">
+        <Carousel images={pet.images} />
         <div className="pet-info flex flex-col items-center gap-2 justify-center">
           <h1 className="pet-name font-bold text-4xl">{pet.name}</h1>
           <h3 className="pet-type text-xl flex gap-2 items-center">
@@ -16,11 +16,15 @@ export const PetDetails = ({ pet }) => {
           <h3 className="pet-location text-xl">
             {pet.city}, {pet.state}
           </h3>
-          <button className="btn adopt">Adopt Me</button>
+          <button className="btn adopt flex gap-2 items-center">
+            <FaHome />
+            Adopt Me
+          </button>
         </div>
-        <p className="pet-desc text-lg p-2 col-span-2 self-center">
-          {pet.description}
-        </p>
+        <div className="pet-desc col-span-2 self-center">
+          <h3 className="font-bold text-2xl">About {pet.name}</h3>
+          <p className="text-lg ps-2">{pet.description}</p>
+        </div>
       </div>
     </div>
   );
