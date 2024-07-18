@@ -1,14 +1,15 @@
 import { useParams } from 'react-router-dom';
 import { usePetDetails } from '../customHooks/usePetDetails';
 import { PetDetails } from '../components/PetDetails';
-import { ErrorBoundary } from '../components/ErrorBoundary';
 export const DetailPage = () => {
   const { id } = useParams();
-  const { petDetails, isPetLoading } = usePetDetails(id);
+  const { petDetails, isPetLoading, petError } = usePetDetails(id);
   if (isPetLoading) return <div className="loader"></div>;
-  return (
-    <ErrorBoundary>
-      <PetDetails pet={petDetails} />
-    </ErrorBoundary>
-  );
+  if (petError)
+    return (
+      <div className="error-pet-fetch text-2xl font-bold text-white p-4 text-center bg-red-600 bg-opacity-60">
+        Error occurred: {petError.message}
+      </div>
+    );
+  return <PetDetails pet={petDetails} />;
 };

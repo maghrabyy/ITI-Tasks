@@ -4,6 +4,5 @@ export const fetchAnimal = async ({ queryKey }) => {
   if (!res.ok) {
     throw new Error("Couldn't fetch pet details.");
   }
-
   return res.json();
 };

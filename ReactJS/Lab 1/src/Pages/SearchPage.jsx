@@ -9,7 +9,7 @@ export const SearchPage = () => {
     animalBreed: '',
   });
   return (
-    <div className="search flex flex-col gap-2 w-full mt-[56px]">
+    <div className="search flex flex-col gap-2 w-full mt-[62px] mb-2">
       <SearchForm setFormState={setFormState} />
       <SearchResult formState={formState} />
     </div>
