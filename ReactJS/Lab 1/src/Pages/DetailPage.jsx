@@ -1,9 +1,14 @@
 import { useParams } from 'react-router-dom';
-import { usePetDetails } from '../customHooks/usePetDetails';
+import { useFetchPetDetailsQuery } from '../APIs/petAPI';
 import { PetDetails } from '../components/PetDetails';
+
 export const DetailPage = () => {
   const { id } = useParams();
-  const { petDetails, isPetLoading, petError } = usePetDetails(id);
+  const {
+    data: petDetails,
+    isLoading: isPetLoading,
+    error: petError,
+  } = useFetchPetDetailsQuery(id);
   if (isPetLoading) return <div className="loader"></div>;
   if (petError)
     return (

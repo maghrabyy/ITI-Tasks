@@ -1,12 +1,17 @@
 import { useState } from 'react';
-import { useBreedsList } from '../../customHooks/useBreedsList';
 import { useSearchFormContext } from '../../Context/SearchFormContext';
+import { useFetchAnimalBreedsQuery } from '../../APIs/petAPI';
 
 const animalTypes = ['dog', 'cat', 'bird', 'reptile', 'rabbit'];
 
 export const SearchForm = () => {
   const [animalType, setAnimalType] = useState('');
-  const { breedList, isBreedsLoading, breedsError } = useBreedsList(animalType);
+  const {
+    data: breedList,
+    isFetching: isBreedsLoading,
+    error: breedsError,
+  } = useFetchAnimalBreedsQuery(animalType, { skip: !animalType });
+  const fetchedBreedList = breedList ?? [];
   const { setFormState } = useSearchFormContext();
   const submitSearch = (e) => {
     e.preventDefault();
@@ -20,7 +25,7 @@ export const SearchForm = () => {
   return (
     <form
       onSubmit={submitSearch}
-      className="col-span-2 rounded-md border-slate-800 gap-2 inline-flex flex-col bg-black py-3 px-8 bg-opacity-60"
+      className="lg:col-span-2 rounded-md border-slate-800 gap-2 inline-flex flex-col bg-black py-3 px-8 bg-opacity-60"
     >
       <label className="text-white font-bold text-2xl" htmlFor="animal-search">
         Search for pet to adopt.
@@ -57,7 +62,7 @@ export const SearchForm = () => {
         <option value="">
           {isBreedsLoading ? 'Loading...' : 'Select a breed'}
         </option>
-        {breedList.map((breed) => {
+        {fetchedBreedList.map((breed) => {
           return (
             <option value={breed} key={breed}>
               {breed}

@@ -13,7 +13,7 @@ export const Pet = ({ id, name, type, breed, petImg, location, desc }) => {
         <h1 className="font-bold text-2xl">{name}</h1>
       </div>
       <div className="pet-info ps-2 py-2">
-        <div className="pet-type flex items-center gap-2">
+        <div className="pet-type flex gap-2">
           {petTypeIcon(type)}
           <h2 className="text-xl">
             {type} - {breed}

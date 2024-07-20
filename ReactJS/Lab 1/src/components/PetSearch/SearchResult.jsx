@@ -1,11 +1,15 @@
 import { PetList } from '../PetList';
 import { Pet } from '../Pet';
-import { usePets } from '../../customHooks/usePets';
 import { useSearchFormContext } from '../../Context/SearchFormContext';
+import { useFetchPetsQuery } from '../../APIs/petAPI';
 
 export const SearchResult = () => {
   const { formState } = useSearchFormContext();
-  const { petsList, isPetsLoading, petsError } = usePets(formState);
+  const {
+    data: petsList,
+    isFetching: isPetsLoading,
+    error: petsError,
+  } = useFetchPetsQuery(formState);
   if (isPetsLoading) return <div className="loader self-center"></div>;
   if (petsError)
     return (
