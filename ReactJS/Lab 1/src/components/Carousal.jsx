@@ -1,11 +1,12 @@
 import { Component } from 'react';
+import defaultPetImg from '../assets/animal-shelter.png';
 
 export class Carousel extends Component {
   state = {
     imgIndex: 0,
   };
   static defaultProps = {
-    images: ['/assets/animal-shelter.png'],
+    images: [defaultPetImg],
   };
   render() {
     const { images } = this.props;
