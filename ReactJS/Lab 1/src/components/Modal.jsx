@@ -1,9 +1,9 @@
 import { createPortal } from 'react-dom';
 
 export const Modal = ({ children, setShowModal }) => {
-  const modalStyle = 'p-4 rounded-md bg-orange-900';
+  const modalStyle = 'p-4 rounded-md bg-orange-900 mx-4';
   const modalOverlayStyle =
-    'absolute w-full h-full bg-black bg-opacity-70 top-0 left-0 inset-0';
+    'fixed z-20 w-full h-full bg-black bg-opacity-70 top-0 left-0 inset-0';
   return createPortal(
     <div
       onClick={() => setShowModal(false)}
