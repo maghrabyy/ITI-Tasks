@@ -570,6 +570,14 @@ video {
   inset: 0px;
 }
 
+.inset-10 {
+  inset: 2.5rem;
+}
+
+.inset-1\/2 {
+  inset: 50%;
+}
+
 .left-0 {
   left: 0px;
 }
@@ -737,6 +745,14 @@ video {
 
 .bg-opacity-80 {
   --tw-bg-opacity: 0.8;
+}
+
+.bg-opacity-90 {
+  --tw-bg-opacity: 0.9;
+}
+
+.bg-opacity-95 {
+  --tw-bg-opacity: 0.95;
 }
 
 .p-1 {

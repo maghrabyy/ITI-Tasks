@@ -72,7 +72,7 @@ export const SearchForm = () => {
       </select>
       {breedsError && (
         <h1 className="text-red-600 font-bold">
-          Error occurred: {breedsError.message}
+          Error occurred: {breedsError.error}
         </h1>
       )}
       <button className="btn">Search</button>

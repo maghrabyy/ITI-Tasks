@@ -13,7 +13,7 @@ export const DetailPage = () => {
   if (petError)
     return (
       <div className="error-pet-fetch text-2xl font-bold text-white p-4 text-center bg-red-600 bg-opacity-60">
-        Error occurred: {petError.message}
+        Error occurred: {petError.error}
       </div>
     );
   return (

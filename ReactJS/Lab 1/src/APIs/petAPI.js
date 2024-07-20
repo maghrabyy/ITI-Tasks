@@ -12,13 +12,10 @@ export const petAPI = createApi({
       transformResponse: (data) => data.pets,
     }),
     fetchAnimalBreeds: builder.query({
-      query: (animal) => {
-        console.log;
-        return {
-          url: `/breeds`,
-          params: { animal },
-        };
-      },
+      query: (animal) => ({
+        url: `/breeds`,
+        params: { animal },
+      }),
       transformResponse: (data) => data.breeds,
     }),
     fetchPetDetails: builder.query({
