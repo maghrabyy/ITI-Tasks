@@ -5,7 +5,7 @@ import { FaHome } from 'react-icons/fa';
 export const PetDetails = ({ pet }) => {
   return (
     <div className="detail-page">
-      <div className="pet-detail grid-cols-1 grid md:grid-cols-4 gap-4 text-white bg-black bg-opacity-60 rounded-md p-4">
+      <div className="pet-details grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-white bg-black bg-opacity-60 rounded-md p-4">
         <Carousel images={pet.images} />
         <div className="pet-info flex flex-col items-center gap-2 justify-center">
           <h1 className="pet-name font-bold text-4xl">{pet.name}</h1>
@@ -21,7 +21,7 @@ export const PetDetails = ({ pet }) => {
             Adopt Me
           </button>
         </div>
-        <div className="pet-desc col-span-2 self-center">
+        <div className="pet-desc md:col-span-2 self-center">
           <h3 className="font-bold text-2xl">About {pet.name}</h3>
           <p className="text-lg ps-2">{pet.description}</p>
         </div>

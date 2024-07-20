@@ -17,15 +17,15 @@ const App = () => {
   return (
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <ErrorBoundary>
-          <div className="min-h-screen flex justify-center items-center mainP">
+        <div className="min-h-screen flex justify-center items-center mainP">
+          <ErrorBoundary>
             <Header />
             <Routes>
               <Route path="/" element={<SearchPage />} />
               <Route path="/details/:id" element={<DetailPage />} />
             </Routes>
-          </div>
-        </ErrorBoundary>
+          </ErrorBoundary>
+        </div>
       </QueryClientProvider>
     </BrowserRouter>
   );

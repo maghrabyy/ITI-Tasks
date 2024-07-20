@@ -16,10 +16,10 @@ export class Carousel extends Component {
         <div className="main-image">
           <img src={images[imgIndex]} className="rounded-md" alt="Pet image" />
         </div>
-        <div className="pet-image w-12 flex gap-1">
+        <div className="pet-image flex flex-wrap justify-center gap-1">
           {images.map((img, index) => (
             <img
-              className={`cursor-pointer ${imgIndex === index ? activeClasses : null}  rounded-md`}
+              className={`cursor-pointer w-10 lg:w-8 xl:w-10 ${imgIndex === index ? activeClasses : null}  rounded-md`}
               onClick={() => this.setState({ imgIndex: index })}
               key={img}
               src={img}

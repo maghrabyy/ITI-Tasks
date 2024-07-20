@@ -7,7 +7,7 @@
   -webkit-text-stroke: 1px rgb(194 65 12 / var(--tw-text-opacity));
 }
 .mainP {
-  @apply px-6 sm:px-10 md:px-20 lg:px-28;
+  @apply px-2 sm:px-10 md:px-20 lg:px-28;
 }
 .btn {
   @apply bg-orange-700 hover:bg-orange-800 py-2 px-4 rounded-md text-white;

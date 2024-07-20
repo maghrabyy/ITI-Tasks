@@ -11,5 +11,9 @@ export const DetailPage = () => {
         Error occurred: {petError.message}
       </div>
     );
-  return <PetDetails pet={petDetails} />;
+  return (
+    <div className="pet-details-page mt-[62px] mb-2">
+      <PetDetails pet={petDetails} />
+    </div>
+  );
 };
