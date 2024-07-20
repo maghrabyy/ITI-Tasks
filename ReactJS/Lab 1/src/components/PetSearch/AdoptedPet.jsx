@@ -1,9 +1,11 @@
-import { useAdoptedPetContext } from '../../Context/AdoptedPetContext';
 import { petTypeIcon } from '../../utils/petsIcons';
 import { FaHome } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 export const AdoptedPet = () => {
-  const { adoptedPet } = useAdoptedPetContext();
+  const adoptedPet = useSelector((state) => {
+    return state.adoptedPet.value;
+  });
   return (
     <div className="adopted-pet flex flex-col gap-3 bg-black bg-opacity-60 px-4 py-6 rounded-md">
       <h1 className="text-3xl font-bold text-white flex gap-2 items-center">

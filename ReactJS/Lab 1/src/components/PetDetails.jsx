@@ -1,15 +1,16 @@
 import { petTypeIcon } from '../utils/petsIcons';
 import { Carousel } from './Carousal';
 import { FaHome } from 'react-icons/fa';
-import { useAdoptedPetContext } from '../Context/AdoptedPetContext';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { adopt } from '../Store/adoptedPetSlice';
 
 export const PetDetails = ({ pet }) => {
-  const { setAdoptedPet } = useAdoptedPetContext();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const adoptPet = (pet) => {
-    setAdoptedPet(pet);
+    dispatch(adopt(pet));
     navigate('/');
   };
 

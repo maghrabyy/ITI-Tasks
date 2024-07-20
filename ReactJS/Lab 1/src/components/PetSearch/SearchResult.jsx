@@ -1,8 +1,10 @@
 import { PetList } from '../PetList';
 import { Pet } from '../Pet';
 import { usePets } from '../../customHooks/usePets';
+import { useSearchFormContext } from '../../Context/SearchFormContext';
 
-export const SearchResult = ({ formState }) => {
+export const SearchResult = () => {
+  const { formState } = useSearchFormContext();
   const { petsList, isPetsLoading, petsError } = usePets(formState);
   if (isPetsLoading) return <div className="loader self-center"></div>;
   if (petsError)

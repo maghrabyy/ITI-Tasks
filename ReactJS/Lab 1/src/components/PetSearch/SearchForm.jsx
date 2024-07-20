@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { useBreedsList } from '../../customHooks/useBreedsList';
+import { useSearchFormContext } from '../../Context/SearchFormContext';
 
 const animalTypes = ['dog', 'cat', 'bird', 'reptile', 'rabbit'];
 
-export const SearchForm = ({ setFormState }) => {
+export const SearchForm = () => {
   const [animalType, setAnimalType] = useState('');
   const { breedList, isBreedsLoading, breedsError } = useBreedsList(animalType);
-
+  const { setFormState } = useSearchFormContext();
   const submitSearch = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
