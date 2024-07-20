@@ -6,7 +6,7 @@ export const Pet = ({ id, name, type, breed, petImg, location, desc }) => {
   return (
     <Link
       to={`/details/${id}`}
-      className="pet bg-black bg-opacity-60 text-white rounded-md px-3 py-2 hover:scale-105"
+      className="pet bg-black bg-opacity-60 text-white rounded-md px-3 py-2 sm:hover:scale-105"
     >
       <div className="pet-img-name flex gap-2 items-center">
         <img src={petImg} className="rounded-full size-8" alt={desc} />
