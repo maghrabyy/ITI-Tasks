@@ -19,7 +19,7 @@ export const SearchForm = ({ setFormState }) => {
   return (
     <form
       onSubmit={submitSearch}
-      className="rounded-md border-slate-800 gap-2 inline-flex flex-col bg-black py-3 px-8 bg-opacity-60"
+      className="col-span-2 rounded-md border-slate-800 gap-2 inline-flex flex-col bg-black py-3 px-8 bg-opacity-60"
     >
       <label className="text-white font-bold text-2xl" htmlFor="animal-search">
         Search for pet to adopt.

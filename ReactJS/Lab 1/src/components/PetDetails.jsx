@@ -1,8 +1,18 @@
 import { petTypeIcon } from '../utils/petsIcons';
 import { Carousel } from './Carousal';
 import { FaHome } from 'react-icons/fa';
+import { useAdoptedPetContext } from '../Context/AdoptedPetContext';
+import { useNavigate } from 'react-router-dom';
 
 export const PetDetails = ({ pet }) => {
+  const { setAdoptedPet } = useAdoptedPetContext();
+  const navigate = useNavigate();
+
+  const adoptPet = (pet) => {
+    setAdoptedPet(pet);
+    navigate('/');
+  };
+
   return (
     <div className="detail-page">
       <div className="pet-details grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-white bg-black bg-opacity-60 rounded-md p-4">
@@ -16,7 +26,10 @@ export const PetDetails = ({ pet }) => {
           <h3 className="pet-location text-xl">
             {pet.city}, {pet.state}
           </h3>
-          <button className="btn adopt flex gap-2 items-center">
+          <button
+            onClick={() => adoptPet(pet)}
+            className="btn adopt flex gap-2 items-center"
+          >
             <FaHome />
             Adopt Me
           </button>
