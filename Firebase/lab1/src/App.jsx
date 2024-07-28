@@ -1,6 +1,10 @@
 import './App.css'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { app } from './firebase'
+import { getDatabase, ref, set,push, get,remove,update } from 'firebase/database'
+
+const db = getDatabase(app)
 
 function App() {
   const [employees, setEmployees] = useState([])
@@ -14,16 +18,15 @@ function App() {
 
   useEffect(()=>{
     const fetchEmployees = async()=>{
-      const res = await fetch('https://iti-task-1-default-rtdb.firebaseio.com/employees.json')
-      if(res.ok){
-        const data = await res.json()
-        const employeesList = []
+      const employeesRef = ref(db,'employees')
+      const snapshot = await get(employeesRef)
+      const data = snapshot.val()
+      const employeesList = []
         for (const id in data) {
           employeesList.push({...data[id], id})
         }
         setEmployees([...employeesList])
       }
-    }
     fetchEmployees()
   }, [employees])
 
@@ -35,40 +38,41 @@ function App() {
     setDepartment('')
   }
 
-  const formSubmitHandler = async(e)=>{
+  const formSubmitHandler = (e)=>{
     e.preventDefault();
     if(!isEditing){
       if(firstName && lastName && age && salary && department){
-        const res = await fetch('https://iti-task-1-default-rtdb.firebaseio.com/employees.json', {
-          method: 'POST',
-          body: JSON.stringify({firstName, lastName, age:Number(age), salary:Number(salary), department})
-        })
-        console.log(res)
+        const employeeRef = ref(db,'employees')
+        const newEmployeeRef = push(employeeRef)
+        set(newEmployeeRef, {firstName, lastName, age:Number(age), salary:Number(salary), department})
+        .then(()=>console.log("Employee added successfully")).catch(error=>console.log(error))  
         clearInput();
       }
     }else{
-    fetch(`https://iti-task-1-default-rtdb.firebaseio.com/employees/${employeeId}.json`, {
-      method: 'PUT',
-      body: JSON.stringify({firstName, lastName, age:Number(age), salary:Number(salary), department})
-    })
-    clearInput();
-    setIsEditing(false)
+      const employeeRef = ref(db,`employees/${employeeId}`)
+      update(employeeRef, {firstName, lastName, age:Number(age), salary:Number(salary), department})
+      clearInput();
+      setIsEditing(false)
     }
   }
 
   const deleteEmployee = (id)=>{
-    fetch(`https://iti-task-1-default-rtdb.firebaseio.com/employees/${id}.json`, {
-      method: 'DELETE'
-    })
+    const employeeRef = ref(db,`employees/${id}`)
+    remove(employeeRef)
   }
   const updateEmployee = (id, firstName, lastName, age, salary, department)=>{
-    setIsEditing(true)
-    setEmployeeId(id)
-    setFirstName(firstName)
-    setLastName(lastName)
-    setAge(age)
-    setSalary(salary)
-    setDepartment(department)
+    if(!isEditing){
+      setIsEditing(true)
+      setEmployeeId(id)
+      setFirstName(firstName)
+      setLastName(lastName)
+      setAge(age)
+      setSalary(salary)
+      setDepartment(department) 
+    }else{
+      setIsEditing(false)
+      clearInput()
+    }
   }
   return (
     <>
@@ -138,7 +142,7 @@ function App() {
                 </td>
                 <td className='px-6 py-4 space-x-2'>
                   <button onClick={()=>deleteEmployee(employee.id)} className='btn bg-red-600'>Delete</button>
-                  <button onClick={()=>updateEmployee(employee.id,employee.firstName,employee.lastName,employee.age,employee.salary,employee.department)} className='btn bg-green-600'>Update</button>
+                  <button onClick={()=>updateEmployee(employee.id,employee.firstName,employee.lastName,employee.age,employee.salary,employee.department)} className='btn bg-green-600'>{isEditing? 'Cancel' : 'Update'}</button>
                 </td>
               </tr>
             )
