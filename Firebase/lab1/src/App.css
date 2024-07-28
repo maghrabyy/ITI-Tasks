@@ -1,5 +1,9 @@
+body{
+    @apply bg-gray-100
+}
+
 .inpt{
-    @apply rounded-md border border-black px-2 py-1
+    @apply rounded-md border border-black px-2 py-1 bg-transparent
 }
 
 .btn{
