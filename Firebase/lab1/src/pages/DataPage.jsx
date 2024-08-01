@@ -12,6 +12,7 @@ import {
   query,
   arrayUnion,
   arrayRemove,
+  // where,
   orderBy,
 } from 'firebase/firestore';
 import { Header } from '../components/Header';
@@ -37,21 +38,31 @@ export const DataPage = () => {
     const courseData = { ...docSnap.data(), id: docSnap.id };
     return courseData;
   };
-
-  onSnapshot(doc(db, 'users', auth.currentUser.uid), async (snapshot) => {
-    const favoriteData = snapshot.data().favoriteCourses;
-    const getFavCourses = favoriteData.map(
-      async (courseId) => await fetchCourseById(courseId),
+  useEffect(() => {
+    const unsubscribeToFavorites = onSnapshot(
+      doc(db, 'users', auth.currentUser.uid),
+      async (snapshot) => {
+        const favoriteData = snapshot.data().favoriteCourses;
+        const getFavCourses = favoriteData.map(
+          async (courseId) => await fetchCourseById(courseId),
+        );
+        const favCourses = await Promise.all(getFavCourses);
+        setFavoriteCourses(favCourses);
+      },
     );
-    const favCourses = await Promise.all(getFavCourses);
-    setFavoriteCourses(favCourses);
-  });
+    () => unsubscribeToFavorites();
+  }, []);
+
   //Read courses
   const fetchCourses = async (field) => {
     try {
       const queryRef = field
         ? query(collection(db, 'courses'), orderBy(field, sortOrder))
-        : query(collection(db, 'courses'));
+        : query(
+            collection(db, 'courses'),
+            // where('hours', '<', '60'),
+            // where('finalMark', '>', '120'),
+          );
       const snapshot = await getDocs(queryRef);
       const coursesData = snapshot.docs.map((doc) => ({
         ...doc.data(),
