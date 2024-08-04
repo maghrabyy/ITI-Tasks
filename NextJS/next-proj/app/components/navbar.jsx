@@ -16,6 +16,9 @@ function Navbar() {
           <Link href="/products">Products</Link>
         </li>
         <li className="hover:text-gray-300">
+          <Link href="/movies">Movies</Link>
+        </li>
+        <li className="hover:text-gray-300">
           <Link href="/about">about</Link>
         </li>
       </ul>
