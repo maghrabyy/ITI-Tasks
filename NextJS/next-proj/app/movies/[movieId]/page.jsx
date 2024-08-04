@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { FaImdb } from 'react-icons/fa';
 
 async function MovieDetail({ params }) {
   const url = `https://api.themoviedb.org/3/movie/${params.movieId}?language=en-US`;
@@ -20,15 +21,22 @@ async function MovieDetail({ params }) {
         <div className="input">https://NextMovies.com</div>
         <Link href="/movies">Back</Link>
       </div>
-      <div className="bg-base-200 px-4 py-16 flex flex-col items-center">
+      <div className="bg-base-200 px-4 py-16 grid grid-cols-3">
         <Image
           width={185}
-          height={1}
-          src={`http://image.tmdb.org/t/p/w185${movie['poster_path']}`}
+          height={0}
+          className="w-auto h-auto col-span-1 place-self-center"
+          src={`https://image.tmdb.org/t/p/original${movie['poster_path']}`}
           alt={movie['original_title']}
         />
-        <h1 className="text-4xl font-bold">{movie['original_title']}</h1>
-        <p>{movie.overview}</p>
+        <div className="movie-info col-span-2">
+          <h1 className="text-4xl font-bold">{movie['original_title']}</h1>
+          <div className="text-xl flex items-center gap-2 font-semibold">
+            <FaImdb className="text-4xl text-yellow-700" />{' '}
+            {movie['vote_average'].toFixed(1)}
+          </div>
+          <p>{movie.overview}</p>
+        </div>
       </div>
     </div>
   );
