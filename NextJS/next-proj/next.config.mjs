@@ -2,7 +2,7 @@
 const nextConfig = {
   swcMinify: true,
   images: {
-    domains: ['image.tmdb.org'],
+    domains: ['image.tmdb.org', 'fakestoreapi.com'],
   },
 };
 
