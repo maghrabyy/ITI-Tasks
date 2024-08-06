@@ -67,7 +67,7 @@ export const ProductDetails = ({ product }) => {
             <p className="text-base text-gray-900">{product.description}</p>
           </div>
           <p className="text-3xl tracking-tight text-gray-900">
-            {product.price} EGP
+            {Number(product.price).toLocaleString()} EGP
           </p>
           <div className="action mt-5 space-x-2">
             <button
