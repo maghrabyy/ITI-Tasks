@@ -6,8 +6,15 @@ export const GET = async (_, { params }) => {
   const prodId = params.prodId;
   try {
     const res = await getDoc(doc(db, 'products', prodId));
-    const prodData = { ...res.data(), id: res.id };
-    return NextResponse.json(prodData);
+    if (res.exists()) {
+      const prodData = { ...res.data(), id: res.id };
+      return NextResponse.json(prodData);
+    } else {
+      return NextResponse.json(
+        { message: "Product doesn't exist." },
+        { status: 404 },
+      );
+    }
   } catch (error) {
     return NextResponse.json(
       { message: `Error occurred: couldn't fetch product ${error.message}` },
@@ -32,7 +39,6 @@ export const DELETE = async (req, { params }) => {
 export const PUT = async (req, { params }) => {
   const prodId = params.prodId;
   const { title, price, category, description } = await req.json();
-  // console.log(title, price, category, description);
   try {
     await updateDoc(doc(db, 'products', prodId), {
       title,
