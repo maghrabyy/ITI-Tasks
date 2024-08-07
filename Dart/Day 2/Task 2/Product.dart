@@ -37,7 +37,11 @@ class Product {
   }
 
   set productPrice(double price) {
-    this._price = price;
+    if (price > 0) {
+      this._price = price;
+    } else {
+      throw "You can't set the product price to 0.";
+    }
   }
 
   set productStock(int stock) {
