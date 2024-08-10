@@ -100,25 +100,28 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text("If you forgot your password,"),
-                  SizedBox(
-                    width: 2.0,
-                  ),
-                  Text(
-                    "Click here.",
-                    style: TextStyle(color: Colors.blue),
-                  )
-                ],
+              const Padding(
+                padding: EdgeInsets.only(bottom: 4.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text("If you forgot your password,"),
+                    SizedBox(
+                      width: 2.0,
+                    ),
+                    Text(
+                      "Click here.",
+                      style: TextStyle(color: Colors.blue),
+                    )
+                  ],
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 8.0),
                 child: TextField(
                   controller: password,
                   onChanged: (value) => {
-                    if (password.text.isEmpty)
+                    if (value.isEmpty)
                       {
                         setState(() {
                           passwordError = "Password field is required.";
