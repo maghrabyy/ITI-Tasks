@@ -8,7 +8,7 @@ String getOrderStatus(OrderStatus status) {
   else if (status == OrderStatus.completed)
     return "Completed";
   else if (status == OrderStatus.cancelled)
-    return "Completed";
+    return "Cancelled";
   else
     return throw Exception("Invalid order status");
 }
