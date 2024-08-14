@@ -54,10 +54,7 @@ export const NewsLetter = () => {
             InputProps={{
               disableUnderline: true,
               endAdornment: (
-                <InputAdornment
-                  position="end"
-                  // sx={{ backgroundColor: 'white' }}
-                >
+                <InputAdornment position="end">
                   <Button sx={{ color: 'white' }}>Subscribe</Button>
                 </InputAdornment>
               ),
