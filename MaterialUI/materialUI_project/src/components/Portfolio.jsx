@@ -24,15 +24,15 @@ export const PortfolioSection = () => {
           <Typography variant="h4" sx={{ textAlign: 'center' }}>
             Our Exceptional Work Quantity
           </Typography>
-          <Grid container spacing={3}>
-            <PortfolioItem img={portfolioImg1} />
-            <PortfolioItem img={portfolioImg2} />
-            <PortfolioItem img={portfolioImg3} />
-            <PortfolioItem img={portfolioImg4} />
-            <PortfolioItem img={portfolioImg5} />
-            <PortfolioItem img={portfolioImg6} />
-          </Grid>
         </Stack>
+        <Grid container spacing={2} sx={{ marginTop: '0.3rem' }}>
+          <PortfolioItem img={portfolioImg1} />
+          <PortfolioItem img={portfolioImg2} />
+          <PortfolioItem img={portfolioImg3} />
+          <PortfolioItem img={portfolioImg4} />
+          <PortfolioItem img={portfolioImg5} />
+          <PortfolioItem img={portfolioImg6} />
+        </Grid>
       </Container>
     </section>
   );

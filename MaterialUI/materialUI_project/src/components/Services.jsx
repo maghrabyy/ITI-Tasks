@@ -11,8 +11,8 @@ import seoImg from '../assets/seo.png';
 
 export const ServicesCards = () => {
   return (
-    <Container className="absolute md:-bottom-[250px] left-1/2 -translate-x-1/2">
-      <Grid container spacing={3}>
+    <Container className="absolute lg:-bottom-[250px] left-1/2 -translate-x-1/2">
+      <Grid container spacing={1}>
         <ServicesCard img={designImg} title="UX / UI Design" />
         <ServicesCard img={codingImg} title="Development" />
         <ServicesCard img={brandingImg} title="Branding" />
@@ -24,7 +24,7 @@ export const ServicesCards = () => {
 
 const ServicesCard = ({ title, img }) => {
   return (
-    <Grid item xs={6} md={3}>
+    <Grid item xs={12} sm={6} lg={3}>
       <Card className="py-2">
         <CardContent>
           <Stack spacing={2}>

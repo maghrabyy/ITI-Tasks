@@ -20,7 +20,7 @@ export const Header = () => {
   const { drawerToggleHandler } = useDrawerToggler();
 
   return (
-    <header className="py-3 min-h-screen space-y-4 bg-black bg-opacity-80 relative mb-[120vh] md:mb-[320px]">
+    <header className="pt-1 pb-4 min-h-screen space-y-4 bg-black bg-opacity-80 relative mb-[250vh] sm:mb-[130vh] md:mb-[115vh] lg:mb-[50vh]">
       <div
         style={{
           backgroundImage: `url(${headerImg})`,
@@ -35,8 +35,8 @@ export const Header = () => {
             spacing={2}
             sx={{ display: { xs: 'flex', md: 'none' } }}
           >
-            <PhoneIcon sx={{ color: 'white' }} />
-            <EmailIcon sx={{ color: 'white' }} />
+            <PhoneIcon sx={{ color: 'white', fontSize: 14 }} />
+            <EmailIcon sx={{ color: 'white', fontSize: 14 }} />
           </Stack>
           <Stack
             sx={{ display: { xs: 'none', md: 'flex' } }}
@@ -53,11 +53,11 @@ export const Header = () => {
             </Typography>
           </Stack>
 
-          <Stack direction="row" spacing={1} className="icons text-white">
-            <FacebookIcon />
-            <XIcon />
-            <InstagramIcon />
-            <PublicIcon />
+          <Stack direction="row" spacing={1} className="icons">
+            <FacebookIcon sx={{ color: 'white', fontSize: 14 }} />
+            <XIcon sx={{ color: 'white', fontSize: 14 }} />
+            <InstagramIcon sx={{ color: 'white', fontSize: 14 }} />
+            <PublicIcon sx={{ color: 'white', fontSize: 14 }} />
           </Stack>
         </Stack>
       </Container>

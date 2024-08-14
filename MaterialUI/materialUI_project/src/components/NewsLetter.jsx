@@ -21,18 +21,22 @@ export const NewsLetter = () => {
         <Typography
           textTransform="uppercase"
           textAlign="center"
-          variant="h4"
           color="white"
+          sx={{ fontSize: { xs: 18, sm: 24 } }}
         >
           Subscribe to our Newsletter
         </Typography>
-        <Typography color="white">
+        <Typography
+          color="white"
+          textAlign="center"
+          sx={{ fontSize: { xs: 13, sm: 18 } }}
+        >
           A small river named Duden flows by their place
         </Typography>
         <Stack
           sx={{
             flexDirection: { xs: 'column', md: 'row' },
-            minWidth: { xs: '400px', md: '500px' },
+            // minWidth: { xs: '400px', md: '500px' },
             gap: { xs: '4px', md: 0 },
           }}
         >
@@ -54,7 +58,10 @@ export const NewsLetter = () => {
             InputProps={{
               disableUnderline: true,
               endAdornment: (
-                <InputAdornment position="end">
+                <InputAdornment
+                  position="end"
+                  // sx={{ display: { xs: 'none', sm: 'block' } }}
+                >
                   <Button sx={{ color: 'white' }}>Subscribe</Button>
                 </InputAdornment>
               ),

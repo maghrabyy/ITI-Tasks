@@ -72,7 +72,9 @@ export const Footer = () => {
               </Stack>
               <Stack direction="row" spacing={2}>
                 <SendIcon sx={{ color: '#4986FC' }} />
-                <Typography color="gray">info@yourdomain.com</Typography>
+                <Typography color="gray" className="truncate">
+                  info@yourdomain.com
+                </Typography>
               </Stack>
             </Stack>
           </Grid>
