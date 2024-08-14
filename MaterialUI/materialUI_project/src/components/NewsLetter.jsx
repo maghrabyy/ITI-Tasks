@@ -36,7 +36,7 @@ export const NewsLetter = () => {
         <Stack
           sx={{
             flexDirection: { xs: 'column', md: 'row' },
-            // minWidth: { xs: '400px', md: '500px' },
+            minWidth: { md: '500px' },
             gap: { xs: '4px', md: 0 },
           }}
         >
