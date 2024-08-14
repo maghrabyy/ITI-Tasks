@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_task/Drawer.dart';
+import 'screens/users_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,9 +32,21 @@ class _MyHomePageState extends State<MyHomePage> {
   TextEditingController password = TextEditingController();
   String? emailError;
   String? passwordError;
+  bool passwordVisibility = false;
   void loginHandler() {
     if (email.text.isNotEmpty && password.text.length >= 6) {
-      print("Logged in successfully");
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (BuildContext context) => const UsersScreen()));
+    }
+    if (email.text.isEmpty) {
+      setState(() {
+        emailError = "Email field is required.";
+      });
+    }
+    if (password.text.isEmpty) {
+      setState(() {
+        passwordError = "Password field is required.";
+      });
     }
   }
 
@@ -42,10 +56,6 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.white,
         appBar: AppBar(
           elevation: 50,
-          leading: const Icon(
-            Icons.home,
-            color: Colors.blueGrey,
-          ),
           backgroundColor: Colors.white,
           title: Text(widget.title),
           actions: const [
@@ -58,6 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ],
         ),
+        drawer: const MyDrawer(),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Column(
@@ -144,15 +155,27 @@ class _MyHomePageState extends State<MyHomePage> {
                           }
                       }
                   },
-                  obscureText: true,
+                  obscureText: !passwordVisibility,
                   decoration: InputDecoration(
+                    suffixIcon: IconButton(
+                        onPressed: () => {
+                              setState(() {
+                                passwordVisibility = !passwordVisibility;
+                              })
+                            },
+                        icon: Icon(
+                          passwordVisibility
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                        )),
                     hintText: "Enter your password",
                     errorText: passwordError,
                     errorBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.red),
                         borderRadius: BorderRadius.all(Radius.circular(2.0))),
                     border: const OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(2.0))),
+                      borderRadius: BorderRadius.all(Radius.circular(2.0)),
+                    ),
                   ),
                 ),
               ),
