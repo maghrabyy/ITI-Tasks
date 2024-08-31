@@ -1,0 +1,16 @@
+{
+  "name": "js-unit-testing",
+  "version": "1.0.0",
+  "description": "JS Unit Testing ITI Task",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "type": "module",
+  "author": "maghraby",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.5.0",
+    "mocha": "^10.7.3"
+  }
+}
